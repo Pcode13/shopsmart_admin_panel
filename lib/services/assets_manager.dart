@@ -9,7 +9,8 @@ class AssetsManager {
   static String error = "$imagesPath/error.png";
   static String emptySearch = "$imagesPath/empty_search.png";
   static String shoppingCart = "$bagImagesPath/shopping_cart.png";
-
+  static String bagCart = "$bagImagesPath/bag_wish.png";
+  static String orderCart = "$bagImagesPath/order.png";
   // Categories path
   static String mobiles = "$categoriesImagesPath/mobiles.png";
   static String fashion = "$categoriesImagesPath/fashion.png";
