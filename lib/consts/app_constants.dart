@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class AppConstants {
@@ -17,7 +16,7 @@ class AppConstants {
     "Accessories",
   ];
 
-static List<DropdownMenuItem<String>>? get categoriesDropDownList {
+  static List<DropdownMenuItem<String>>? get categoriesDropDownList {
     List<DropdownMenuItem<String>>? menuItem =
         List<DropdownMenuItem<String>>.generate(
       categoriesList.length,
@@ -28,5 +27,4 @@ static List<DropdownMenuItem<String>>? get categoriesDropDownList {
     );
     return menuItem;
   }
-
 }

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shopsmart_admin_panel/screens/edit_upload+product_form.dart';
 
 import 'consts/theme_data.dart';
 import 'providers/products_provider.dart';
 import 'providers/theme_provider.dart';
 import 'screens/dashboard_screen.dart';
+import 'screens/edit_upload_product_form.dart';
 import 'screens/inner_screen/orders/orders_screen.dart';
 import 'screens/search_screen.dart';
 
