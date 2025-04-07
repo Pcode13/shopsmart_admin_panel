@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
@@ -118,7 +119,7 @@ class _EditOrUploadProductScreenState extends State<EditOrUploadProductScreen> {
       },
       child: Scaffold(
         bottomSheet: SizedBox(
-          height: kBottomNavigationBarHeight + 20,
+          height: kBottomNavigationBarHeight + 10,
           child: Material(
             color: Theme.of(context).scaffoldBackgroundColor,
             child: Row(
@@ -127,7 +128,7 @@ class _EditOrUploadProductScreenState extends State<EditOrUploadProductScreen> {
                 ElevatedButton.icon(
                   style: ElevatedButton.styleFrom(
                     padding: const EdgeInsets.all(12),
-                    backgroundColor: Colors.black12,
+                    backgroundColor: Colors.red,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10),
                     ),
@@ -164,8 +165,66 @@ class _EditOrUploadProductScreenState extends State<EditOrUploadProductScreen> {
               children: [
                 const SizedBox(height: 20),
 
-                // TODO: Implement the image picker
                 // Image Picker
+                if (_pickedImage == null) ...[
+                  SizedBox(
+                    width: size.width * 0.4 + 10,
+                    height: size.width * 0.4,
+                    child: DottedBorder(
+                      child: Center(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            const Icon(
+                              Icons.image_outlined,
+                              size: 80,
+                              color: Colors.blue,
+                            ),
+                            TextButton(
+                              onPressed: () {
+                                localImagePicker();
+                              },
+                              child: const Text("Pick Product Image"),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ] else ...[
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(12),
+                    child: Image.file(
+                      File(_pickedImage!.path),
+                      // width: size.width * 0.7,
+                      height: size.width * 0.5,
+                      alignment: Alignment.center,
+                    ),
+                  ),
+                ],
+                if (_pickedImage != null) ...[
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      TextButton(
+                        onPressed: () {
+                          localImagePicker();
+                        },
+                        child: const Text("Pick another image"),
+                      ),
+                      TextButton(
+                        onPressed: () {
+                          removePickedImage();
+                        },
+                        child: const Text(
+                          "Remove image",
+                          style: TextStyle(color: Colors.red),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
                 const SizedBox(height: 25),
 
                 // Category dropdown widget
